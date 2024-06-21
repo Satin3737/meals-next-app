@@ -1,0 +1,87 @@
+@mixin responsive-below($width) {
+    @media (max-width: #{$width}) {
+        @content;
+    }
+}
+
+@mixin responsive-above($width) {
+    @media (min-width: #{$width}) {
+        @content;
+    }
+}
+
+@mixin responsive-below-height($height) {
+    @media (max-height: #{$height}) {
+        @content;
+    }
+}
+
+@mixin responsive-above-height($height) {
+    @media (min-height: #{$height}) {
+        @content;
+    }
+}
+
+@mixin responsive-between($minWidth, $maxWidth) {
+    @media (min-width: #{$minWidth}) and (max-width: #{$maxWidth}) {
+        @content;
+    }
+}
+
+@mixin responsive-between-height($minHeight, $maxHeight) {
+    @media (min-height: #{$minHeight}) and (max-height: #{$maxHeight}) {
+        @content;
+    }
+}
+
+@mixin hideScrollBar() {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@mixin customScrollBar() {
+    scrollbar-color: var(--c-grey-400) var(--c-grey-200);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--c-grey-200);
+        border-radius: 16px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--c-grey-700);
+        border-radius: 16px;
+    }
+}
+
+@mixin mediaHover() {
+    @media (hover: hover) {
+        @content;
+    }
+}
+
+@mixin visuallyHidden() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: none;
+    background: none;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+}
